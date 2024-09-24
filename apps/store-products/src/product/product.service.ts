@@ -37,7 +37,7 @@ export class ProductService {
   }
 
   async create(createProductDto: CreateProductDto): Promise<CreateProductDto> {
-    const existProduct = this.productModule.findOne({
+    const existProduct = await this.productModule.findOne({
       name: createProductDto.name,
     });
     if (existProduct) {
